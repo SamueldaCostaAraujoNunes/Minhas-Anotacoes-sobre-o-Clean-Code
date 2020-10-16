@@ -1,6 +1,6 @@
 # Nomes Significativos
 
-## Use Nomes que Revelem seu Propósito
+## 📛 Use Nomes que Revelem seu Propósito
 
 1. O nome de uma variável, função ou classe deve responder a todas as grandes questões. Ele deve lhe dizer porque existe, o que faz e como é usado.
 
@@ -20,7 +20,7 @@ Nesta declaração de variável, tem informações mais completas sobre o seu si
 
 Tente descrever para si, qual o real significado daquela entidade. Crie um nome simples e direto que resuma bem o que ela representa. E ENTÃO, ESCREVA.
 
-## Evite Informações Erradas
+## ℹ❌ Evite Informações Erradas
 
 1. Programadores devem evitar passar dicas falsas que confundam o sentido do código.
 2. Devemos evitar palavras cujo significados podem se desviar daquele que desejamos.
@@ -50,3 +50,34 @@ Observe a semelhança:
 O == 0 and i == 1
 ```
 Um problema deste pode ser evitado facilmente resolvido, definindo nomes significativos para as variáveis.
+
+## ⁉ Faça Distinções Significativas
+
+1. Os programadores criam problemas para si próprios quando criam um código voltado unicamente para o interpretador/compilador.
+2. Se os nomes precisam ser diferentes então também devem ter significados distintos.
+
+Exemplo:
+```
+def crypt(text1, text2):
+    text3 = ''
+    for text4 in text1:
+        text5 = text2[text4]
+        text3 += text5
+    return text3
+```
+
+Observe o exemplo acima. Sua sintaxe está correta, e funcionaria perfeitamente bem pelo interpretador. Mas, sua leitura é cansativa e confusa. Os nomes das variáveis, são muito similares e dificulta a interpretação do código.
+
+Refatorando:
+```
+def crypt(message: str, key: dict) -> str:
+    encrypted_message = ''
+    for letter in message:
+        new_letter = key[letter]
+        encrypted_message += new_letter
+    return encrypted_message
+```
+
+Agora, com o código refatorado. Observe como a sua leitura fica mais simples e mais explicita. As variáveis declaradas com um nome mais representativo, mudam completamente a velocidade de compreensão do que é, e como opera aquela função.
+
+O uso arbitrário e indiscriminado de prefixos e sufixos nos nomes de variáveis, é uma péssima pratica. Como exemplo, temos os prefixos ```m_``` e ```n_```, que são formas de representar variáveis de membro e uma nova instância de uma variável já conhecida, respectivamente. Então, o uso de ```n_name```, para declarar uma variável qualquer, apenas para "enganar" o interpretado. Pode acabar atrapalhando você ou outro programador, futuramente.
